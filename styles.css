@@ -1,0 +1,211 @@
+/* General Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.navbar {
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+#hero {
+    position: relative;
+    color: #fff;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    text-align: left;
+    overflow: hidden;
+}
+
+#hero .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 1;
+}
+
+#bg-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+}
+
+#hero .container {
+    position: relative;
+    z-index: 2;
+}
+
+#hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    color: #fff;
+}
+
+#hero p {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    color: #dcdcdc;
+}
+
+#hero .btn-primary {
+    background-color: #ff4b2b;
+    border: none;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+#hero .btn-outline-primary {
+    border: 2px solid #ff4b2b;
+    color: #ff4b2b;
+    transition: color 0.3s, background-color 0.3s;
+}
+
+#hero .btn-outline-primary:hover {
+    color: #fff;
+    background-color: #ff4b2b;
+}
+
+#hero .image-container {
+    position: relative;
+}
+
+#hero .image-container img {
+    width: 80%;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+section {
+    padding: 60px 0;
+}
+
+.contact-section .form-control {
+    background-color: #f8f9fa;
+    border: 1px solid #ced4da;
+    color: #495057;
+    border-radius: 0.25rem;
+}
+
+footer {
+    background-color: #343a40;
+    color: #dcdcdc;
+}
+
+footer a {
+    color: #dcdcdc;
+}
+
+footer a:hover {
+    color: #ffffff;
+}
+
+/* Add hover effects to project cards */
+.project-card {
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.project-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Skills progress bars */
+.progress-bar {
+    background: linear-gradient(90deg, #ff4b2b 0%, #ff416c 100%);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Education timeline */
+.timeline {
+    list-style: none;
+    padding: 0;
+    position: relative;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: #d4d4d4;
+    z-index: 0;
+}
+
+.timeline-item {
+    position: relative;
+    margin: 20px 0;
+    padding: 20px;
+    border-radius: 5px;
+    background: #f8f9fa;
+    border: 1px solid #d4d4d4;
+    width: 45%;
+    left: 55%;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    top: 20px;
+    right: 100%;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 10px 10px 10px 0;
+    border-color: transparent #d4d4d4 transparent transparent;
+}
+
+.timeline-item:nth-child(even) {
+    left: 0;
+}
+
+.timeline-item:nth-child(even)::before {
+    left: 100%;
+    right: auto;
+    border-width: 10px 0 10px 10px;
+    border-color: transparent transparent transparent #d4d4d4;
+}
+
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    #hero h1 {
+        font-size: 2.5rem;
+    }
+
+    #hero p {
+        font-size: 1rem;
+    }
+
+    .project-card img {
+        height: auto;
+        width: 100%;
+    }
+
+    .timeline-item {
+        width: 100%;
+        left: 0;
+        margin-left: 0;
+    }
+
+    .timeline-item::before {
+        display: none;
+    }
+
+    .timeline::before {
+        left: 0;
+    }
+}
