@@ -15,6 +15,7 @@ body {
 #hero {
     position: relative;
     color: #fff;
+    background-color: #343a40;
     height: 100vh;
     display: flex;
     align-items: center;
@@ -44,6 +45,7 @@ body {
 }
 
 #hero .container {
+    
     position: relative;
     z-index: 2;
 }
