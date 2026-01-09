@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Linkedin, Twitter, Github, Mail, Phone } from "lucide-react";
 import { SITE_CONFIG, NAV_ITEMS } from "@/lib/constants";
 
@@ -16,12 +17,28 @@ export function Footer() {
   return (
     <footer className="border-t bg-background">
       <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          {/* Profile Section */}
+          <div className="flex flex-col items-center md:items-start">
+            <div className="relative w-24 h-24 mb-4 rounded-full overflow-hidden shadow-lg shadow-indigo-600/20">
+              <Image
+                src="/picofme.webp"
+                alt={SITE_CONFIG.name}
+                fill
+                className="object-cover"
+              />
+            </div>
+            <h3 className="text-lg font-semibold">{SITE_CONFIG.name}</h3>
+            <p className="text-sm text-muted-foreground text-center md:text-left">
+              {SITE_CONFIG.role}
+            </p>
+          </div>
+
           {/* About Section */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">{SITE_CONFIG.name}</h3>
+            <h3 className="text-lg font-semibold mb-4">About</h3>
             <p className="text-sm text-muted-foreground">
-              {SITE_CONFIG.role} passionate about building modern web applications
+              Passionate about building modern web applications
               and creating exceptional user experiences.
             </p>
           </div>

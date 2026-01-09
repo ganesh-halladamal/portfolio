@@ -142,6 +142,33 @@
   - Add email CTA section with professional contact details
   - _Requirements: 4.1, 4.2, 4.3, 4.4, 4.5_
 
+- [x] 10.5 Create CV/Resume page
+
+
+
+
+
+  - [ ] 10.5.1 Create CV page route and layout
+    - Set up app/cv/page.tsx with proper metadata
+    - Create responsive page layout with header section
+    - Add navigation link to navbar for CV page
+
+    - _Requirements: 9.1, 9.2_
+  
+  - [ ] 10.5.2 Implement Google Docs resume viewer
+    - Create embedded iframe component for Google Docs viewer
+    - Configure resume URL in constants or environment variables
+    - Add loading states and error handling for iframe
+
+    - Implement responsive iframe container with proper aspect ratio
+    - _Requirements: 9.3, 9.5_
+  
+  - [ ] 10.5.3 Add resume access options
+    - Create "Open in Google Docs" button with external link
+    - Add mobile-optimized view with direct link option
+    - Implement fallback message if iframe fails to load
+    - _Requirements: 9.4, 9.5_
+
 - [ ] 11. Add SEO optimization and meta tags
   - [ ] 11.1 Implement dynamic meta tags for all pages
     - Create metadata API configuration for each route

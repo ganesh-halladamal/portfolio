@@ -3,31 +3,74 @@ import { Project, Skill, Experience, ProjectCategory, SkillCategory, SkillLevel 
 export const projects: Project[] = [
   {
     id: "1",
-    title: "Student Attendance Management System",
+    title: "DevTinder",
     description:
-      "A web-based student attendance system that automates the process of recording and managing student attendance, replacing time-consuming manual methods with a user-friendly digital solution.",
+      "A Tinder-like experience for developers, helping them connect based on their skills, projects, and interests.",
     longDescription:
-      "Say goodbye to paper sheets! This web-based student attendance system, built with PHP, MySQL, HTML, CSS, JavaScript, and Bootstrap, automates the process of recording and managing student attendance. It replaces time-consuming manual methods with a user-friendly digital solution, boosting efficiency for both teachers and administrators.",
-    image: "/images/projects/attendance.jpg",
-    techStack: ["PHP", "MySQL", "HTML", "CSS", "JavaScript", "Bootstrap"],
-    githubUrl: "https://github.com/ganesh-halladamal/Student-Attendance-Management-System",
+      "DevTinder is a project built to provide a Tinder-like experience for developers, helping them connect based on their skills, projects, and interests. This web application is built using Express.js, React, and Node.js.",
+    image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80",
+    techStack: ["React", "Node.js", "Express.js", "MongoDB"],
+    githubUrl: "https://github.com/ganesh-halladamal/DevTinder",
     featured: true,
     category: ProjectCategory.WEB_APP,
-    completedAt: new Date("2023-06-01"),
+    completedAt: new Date("2024-12-01"),
   },
   {
     id: "2",
-    title: "Responsive Portfolio Website",
+    title: "AI-Powered Travel Advisor",
     description:
-      "A modern, responsive portfolio website showcasing front-end development skills with optimal viewing experiences across various devices.",
+      "A comprehensive travel planning platform that helps users discover destinations, explore accommodations, and generate personalized itineraries using AI.",
     longDescription:
-      "This portfolio website is a testament to my skills in front-end development. It showcases responsive design, ensuring optimal viewing experiences across various devices, from mobile phones to desktops. The website is built using HTML, CSS, JavaScript, and Bootstrap, highlighting my ability to create visually appealing and functional web applications.",
-    image: "/images/projects/portfolio-website.jpg",
-    techStack: ["HTML", "CSS", "JavaScript", "Bootstrap"],
-    githubUrl: "https://github.com/ganesh-halladamal/portfolio",
+      "A comprehensive travel planning platform that helps users discover destinations, explore accommodations, and generate personalized itineraries using AI. Built with Next.js and powered by Qwen LLM for intelligent travel recommendations.",
+    image: "https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=800&q=80",
+    techStack: ["Next.js", "Qwen LLM", "React", "Tailwind CSS"],
+    githubUrl: "https://github.com/ganesh-halladamal/AI-Powered-Travel-Advisor",
+    liveUrl: "https://ai-powered-travel-advisor.vercel.app",
     featured: true,
     category: ProjectCategory.WEB_APP,
-    completedAt: new Date("2023-08-01"),
+    completedAt: new Date("2024-11-01"),
+  },
+  {
+    id: "3",
+    title: "Smart Attendance Management Using Face Recognition",
+    description:
+      "An intelligent and efficient web-based application to automate attendance tracking using facial recognition.",
+    longDescription:
+      "An intelligent and efficient web-based application to automate attendance tracking using facial recognition, built with Python, Flask, OpenCV, and the face_recognition library. This system eliminates manual attendance processes and provides accurate, automated tracking.",
+    image: "https://images.unsplash.com/photo-1555421689-d68471e189f2?w=800&q=80",
+    techStack: ["Python", "Flask", "OpenCV", "Face Recognition"],
+    githubUrl: "https://github.com/ganesh-halladamal/Smart-Attendance-Management-Using-Face-Recognition",
+    featured: true,
+    category: ProjectCategory.WEB_APP,
+    completedAt: new Date("2024-03-01"),
+  },
+  {
+    id: "4",
+    title: "Paritranaya IAS Academy",
+    description:
+      "A comprehensive website for an IAS coaching academy, providing information about courses, faculty, and student resources.",
+    longDescription:
+      "A modern, responsive website for Paritranaya IAS Academy built with React and Supabase. The platform provides comprehensive information about courses, faculty, admission processes, and student resources for aspiring civil servants.",
+    image: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=800&q=80",
+    techStack: ["React", "Supabase", "JavaScript", "CSS"],
+    liveUrl: "https://paritranayaiasacademy.in/",
+    featured: true,
+    category: ProjectCategory.WEB_APP,
+    completedAt: new Date("2024-09-01"),
+  },
+  {
+    id: "5",
+    title: "Karnataka Pharmacists Welfare & Development Trust",
+    description:
+      "Official website for Karnataka Pharmacists Welfare & Development Trust, providing information about trust activities and member services.",
+    longDescription:
+      "A professional website for Karnataka Pharmacists Welfare & Development Trust built with Next.js and Firebase. The platform serves as a central hub for trust information, member services, events, and welfare programs for pharmacists across Karnataka.",
+    image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80",
+    techStack: ["Next.js", "Firebase", "React", "Tailwind CSS"],
+    liveUrl: "https://karnatakapharmacisttrust.com/",
+    featured: true,
+    category: ProjectCategory.WEB_APP,
+    completedAt: new Date("2024-10-01"),
   },
 ];
 

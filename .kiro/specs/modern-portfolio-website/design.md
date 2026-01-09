@@ -28,6 +28,8 @@ app/
 │   └── page.tsx          # Projects page
 ├── contact/
 │   └── page.tsx          # Contact page
+├── cv/
+│   └── page.tsx          # CV/Resume page
 ├── globals.css           # Global styles and CSS variables
 └── not-found.tsx         # 404 page
 
@@ -176,6 +178,28 @@ interface ContactFormData {
 - Loading states and error handling
 - Toast notifications for feedback
 - Accessibility compliance
+
+#### CV/Resume Page
+```typescript
+interface CVPageProps {
+  resumeUrl: string;
+  className?: string;
+}
+
+interface ResumeData {
+  googleDocsUrl: string;
+  embedUrl: string;
+  downloadUrl?: string;
+}
+```
+
+**Features:**
+- Embedded Google Docs viewer for resume display
+- Direct link to open resume in Google Docs
+- Responsive iframe container with proper aspect ratio
+- Loading states for iframe content
+- Fallback message if iframe fails to load
+- Mobile-optimized view with option to open in new tab
 
 ## Data Models
 

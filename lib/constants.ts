@@ -17,3 +17,8 @@ export const NAV_ITEMS = [
   { label: "Projects", href: "/projects" },
   { label: "Contact", href: "/contact" },
 ] as const;
+
+export const RESUME_CONFIG = {
+  googleDocsUrl: "https://docs.google.com/document/d/1CUwpkZBSb2_eC8k3x4tAGyDmGCId88XbEq1jcS0wuDM/edit?usp=sharing",
+  embedUrl: "https://docs.google.com/document/d/1CUwpkZBSb2_eC8k3x4tAGyDmGCId88XbEq1jcS0wuDM/preview",
+} as const;

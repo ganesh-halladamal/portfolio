@@ -112,3 +112,15 @@ This document outlines the requirements for building a modern, responsive develo
 3. THE Portfolio_Website SHALL implement reusable UI components using shadcn/ui
 4. THE Portfolio_Website SHALL separate data from components using dedicated data files
 5. THE Portfolio_Website SHALL include proper code comments and documentation
+
+### Requirement 9
+
+**User Story:** As a recruiter or potential employer, I want to view the developer's resume in a professional format, so that I can quickly assess their qualifications and download their CV for review.
+
+#### Acceptance Criteria
+
+1. THE Portfolio_Website SHALL provide a CV navigation link in the main navigation bar
+2. WHEN a user clicks on the CV navigation link, THE Portfolio_Website SHALL navigate to a dedicated resume page
+3. THE Portfolio_Website SHALL display the resume content in an embedded Google Docs viewer
+4. THE Portfolio_Website SHALL provide a direct link to view the resume in Google Docs
+5. THE Portfolio_Website SHALL ensure the resume page is responsive and accessible on all device sizes
