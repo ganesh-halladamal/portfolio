@@ -2,7 +2,6 @@
 
 import React from "react";
 import { ArrowRight } from "lucide-react";
-import Link from "next/link";
 
 export default function AboutDemo() {
   return (
@@ -27,13 +26,13 @@ export default function AboutDemo() {
           <div className="w-24 h-[3px] rounded-full bg-gradient-to-r from-indigo-600 to-[#DDD9FF]"></div>
           
           <p className="mt-8">
-            I'm Ganesh Halladamal, a passionate Full Stack Developer with expertise in building modern, 
+            I&apos;m Ganesh Halladamal, a passionate Full Stack Developer with expertise in building modern, 
             responsive web applications that deliver exceptional user experiences. Currently working as a 
             Software Development Engineer at Nighan2 Labs Pvt. Ltd. since March 2025.
           </p>
           
           <p className="mt-4">
-            With a Bachelor's degree in Computer Applications and hands-on experience in technologies like 
+            With a Bachelor&apos;s degree in Computer Applications and hands-on experience in technologies like 
             React, Next.js, Node.js, and MongoDB, I specialize in creating scalable solutions that solve 
             real-world problems.
           </p>
