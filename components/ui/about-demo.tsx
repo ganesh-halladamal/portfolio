@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 
 export default function AboutDemo() {
@@ -11,10 +12,13 @@ export default function AboutDemo() {
   return (
     <section className="flex flex-col md:flex-row items-center justify-center gap-10 max-md:px-4 relative isolate">
       <div className="relative shadow-2xl shadow-indigo-600/40 rounded-2xl overflow-hidden shrink-0 z-10">
-        <img 
+        <Image 
           className="max-w-md w-full object-cover rounded-2xl aspect-square pointer-events-none"
           src="/picofme.webp"
-          alt="Ganesh Halladamal" 
+          alt="Ganesh Halladamal"
+          width={448}
+          height={448}
+          priority
         />
       </div>
       
@@ -23,7 +27,7 @@ export default function AboutDemo() {
         <div className="w-24 h-[3px] rounded-full bg-gradient-to-r from-indigo-600 to-[#DDD9FF]"></div>
         
         <p className="mt-8">
-          I'm <span className="font-semibold text-slate-800 dark:text-slate-100 relative inline-block">
+          I&apos;m <span className="font-semibold text-slate-800 dark:text-slate-100 relative inline-block">
             Ganesh Halladamal
             <span className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-indigo-600 to-purple-600"></span>
           </span>, a passionate <span className="font-semibold text-slate-800 dark:text-slate-100 relative inline-block">
@@ -35,7 +39,7 @@ export default function AboutDemo() {
         </p>
         
         <p className="mt-4">
-          With a Bachelor's degree in Computer Applications and hands-on experience in technologies like 
+          With a Bachelor&apos;s degree in Computer Applications and hands-on experience in technologies like 
           React, Next.js, Node.js, and MongoDB, I specialize in creating scalable solutions that solve 
           real-world problems.
         </p>

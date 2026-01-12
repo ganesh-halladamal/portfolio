@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 
 export default function AboutFeatures() {
   return (
@@ -20,9 +21,11 @@ export default function AboutFeatures() {
         
         <div>
           <div className="size-10 p-2 bg-indigo-50 dark:bg-indigo-900/30 border border-indigo-200 dark:border-indigo-700 rounded">
-            <img 
+            <Image 
               src="https://raw.githubusercontent.com/prebuiltui/prebuiltui/main/assets/aboutSection/flashEmoji.png" 
-              alt="Lightning Fast" 
+              alt="Lightning Fast"
+              width={40}
+              height={40}
             />
           </div>
           <div className="mt-5 space-y-2">
@@ -33,9 +36,11 @@ export default function AboutFeatures() {
 
         <div>
           <div className="size-10 p-2 bg-indigo-50 dark:bg-indigo-900/30 border border-indigo-200 dark:border-indigo-700 rounded">
-            <img 
+            <Image 
               src="https://raw.githubusercontent.com/prebuiltui/prebuiltui/main/assets/aboutSection/colorsEmoji.png" 
-              alt="Beautiful Design" 
+              alt="Beautiful Design"
+              width={40}
+              height={40}
             />
           </div>
           <div className="mt-5 space-y-2">
@@ -46,9 +51,11 @@ export default function AboutFeatures() {
 
         <div>
           <div className="size-10 p-2 bg-indigo-50 dark:bg-indigo-900/30 border border-indigo-200 dark:border-indigo-700 rounded">
-            <img 
+            <Image 
               src="https://raw.githubusercontent.com/prebuiltui/prebuiltui/main/assets/aboutSection/puzzelEmoji.png" 
-              alt="Easy Integration" 
+              alt="Easy Integration"
+              width={40}
+              height={40}
             />
           </div>
           <div className="mt-5 space-y-2">
@@ -59,9 +66,11 @@ export default function AboutFeatures() {
 
         <div>
           <div className="size-10 p-2 bg-indigo-50 dark:bg-indigo-900/30 border border-indigo-200 dark:border-indigo-700 rounded">
-            <img 
+            <Image 
               src="https://raw.githubusercontent.com/prebuiltui/prebuiltui/main/assets/aboutSection/bookEmoji.png" 
-              alt="Documentation" 
+              alt="Documentation"
+              width={40}
+              height={40}
             />
           </div>
           <div className="mt-5 space-y-2">
@@ -72,9 +81,11 @@ export default function AboutFeatures() {
 
         <div>
           <div className="size-10 p-2 bg-indigo-50 dark:bg-indigo-900/30 border border-indigo-200 dark:border-indigo-700 rounded">
-            <img 
+            <Image 
               src="https://raw.githubusercontent.com/prebuiltui/prebuiltui/main/assets/aboutSection/boxEmoji.png" 
-              alt="Customizable" 
+              alt="Customizable"
+              width={40}
+              height={40}
             />
           </div>
           <div className="mt-5 space-y-2">
@@ -85,9 +96,11 @@ export default function AboutFeatures() {
 
         <div>
           <div className="size-10 p-2 bg-indigo-50 dark:bg-indigo-900/30 border border-indigo-200 dark:border-indigo-700 rounded">
-            <img 
+            <Image 
               src="https://raw.githubusercontent.com/prebuiltui/prebuiltui/main/assets/aboutSection/brainEmoji.png" 
-              alt="Accessibility" 
+              alt="Accessibility"
+              width={40}
+              height={40}
             />
           </div>
           <div className="mt-5 space-y-2">

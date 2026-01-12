@@ -137,7 +137,7 @@ export default function ContactPage() {
               {/* Success Message */}
               {submitStatus === "success" && (
                 <div className="p-4 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 rounded-lg text-center">
-                  Message sent successfully! I'll get back to you soon.
+                  Message sent successfully! I&apos;ll get back to you soon.
                 </div>
               )}
 
@@ -158,7 +158,7 @@ export default function ContactPage() {
             <div className="w-24 h-[3px] rounded-full bg-gradient-to-r from-indigo-600 to-[#DDD9FF]"></div>
 
             <p className="mt-8">
-              Have a project in mind or want to collaborate? I'd love to hear from you! 
+              Have a project in mind or want to collaborate? I&apos;d love to hear from you! 
               Feel free to reach out through the form or any of the channels below.
             </p>
 
