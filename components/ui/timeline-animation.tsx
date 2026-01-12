@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, Transition } from "framer-motion";
+import { motion, Variants as FramerVariants } from "framer-motion";
 import { useInView } from "framer-motion";
 import { RefObject, ElementType } from "react";
 
@@ -8,7 +8,7 @@ interface TimelineContentProps<T extends ElementType> {
   as?: T;
   animationNum: number;
   timelineRef: RefObject<HTMLElement | null>;
-  customVariants?: any;
+  customVariants?: FramerVariants;
   children: React.ReactNode;
   className?: string;
   [key: string]: unknown;
@@ -26,7 +26,7 @@ export function TimelineContent<T extends ElementType = "div">({
   const Component = as || "div";
   const isInView = useInView(timelineRef, { once: true, amount: 0.3 });
 
-  const defaultVariants: any = {
+  const defaultVariants: FramerVariants = {
     hidden: {
       opacity: 0,
       y: 20,
@@ -57,3 +57,5 @@ export function TimelineContent<T extends ElementType = "div">({
     </motion.div>
   );
 }
+
+
