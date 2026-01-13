@@ -1,6 +1,6 @@
 "use client";
 
-import { ModernAnimatedFooter } from "@/components/ui/modern-animated-footer";
+import { AnimatedFooter } from "@/components/layout/animated-footer";
 import { Twitter, Linkedin, Github, Mail } from "lucide-react";
 import { SITE_CONFIG } from "@/lib/constants";
 
@@ -36,7 +36,7 @@ export function Footer() {
   ];
 
   return (
-    <ModernAnimatedFooter
+    <AnimatedFooter
       brandName={SITE_CONFIG.name}
       brandDescription={`${SITE_CONFIG.role} passionate about building modern web applications and creating exceptional user experiences.`}
       socialLinks={socialLinks}

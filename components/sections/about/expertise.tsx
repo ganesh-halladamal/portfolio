@@ -1,9 +1,9 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
+import { Zap, Palette, Database, FileCode, Lightbulb, GraduationCap } from "lucide-react";
 
-export default function AboutFeatures() {
+export function AboutExpertise() {
   return (
     <>
       <style>{`
@@ -20,13 +20,8 @@ export default function AboutFeatures() {
         <div className="size-[520px] -top-80 left-1/2 -translate-x-1/2 rounded-full absolute blur-[300px] -z-10 bg-[#FBFFE1] dark:bg-[#1a1a2e]"></div>
         
         <div>
-          <div className="size-10 p-2 bg-indigo-50 dark:bg-indigo-900/30 border border-indigo-200 dark:border-indigo-700 rounded">
-            <Image 
-              src="https://raw.githubusercontent.com/prebuiltui/prebuiltui/main/assets/aboutSection/flashEmoji.png" 
-              alt="Lightning Fast"
-              width={40}
-              height={40}
-            />
+          <div className="size-10 p-2 bg-indigo-50 dark:bg-indigo-900/30 border border-indigo-200 dark:border-indigo-700 rounded flex items-center justify-center">
+            <Zap className="w-6 h-6 text-indigo-600 dark:text-indigo-400" />
           </div>
           <div className="mt-5 space-y-2">
             <h3 className="text-base font-medium text-slate-600 dark:text-slate-300">Full Stack Development</h3>
@@ -35,13 +30,8 @@ export default function AboutFeatures() {
         </div>
 
         <div>
-          <div className="size-10 p-2 bg-indigo-50 dark:bg-indigo-900/30 border border-indigo-200 dark:border-indigo-700 rounded">
-            <Image 
-              src="https://raw.githubusercontent.com/prebuiltui/prebuiltui/main/assets/aboutSection/colorsEmoji.png" 
-              alt="Beautiful Design"
-              width={40}
-              height={40}
-            />
+          <div className="size-10 p-2 bg-indigo-50 dark:bg-indigo-900/30 border border-indigo-200 dark:border-indigo-700 rounded flex items-center justify-center">
+            <Palette className="w-6 h-6 text-indigo-600 dark:text-indigo-400" />
           </div>
           <div className="mt-5 space-y-2">
             <h3 className="text-base font-medium text-slate-600 dark:text-slate-300">Responsive Design</h3>
@@ -50,13 +40,8 @@ export default function AboutFeatures() {
         </div>
 
         <div>
-          <div className="size-10 p-2 bg-indigo-50 dark:bg-indigo-900/30 border border-indigo-200 dark:border-indigo-700 rounded">
-            <Image 
-              src="https://raw.githubusercontent.com/prebuiltui/prebuiltui/main/assets/aboutSection/puzzelEmoji.png" 
-              alt="Easy Integration"
-              width={40}
-              height={40}
-            />
+          <div className="size-10 p-2 bg-indigo-50 dark:bg-indigo-900/30 border border-indigo-200 dark:border-indigo-700 rounded flex items-center justify-center">
+            <Database className="w-6 h-6 text-indigo-600 dark:text-indigo-400" />
           </div>
           <div className="mt-5 space-y-2">
             <h3 className="text-base font-medium text-slate-600 dark:text-slate-300">Database Management</h3>
@@ -65,13 +50,8 @@ export default function AboutFeatures() {
         </div>
 
         <div>
-          <div className="size-10 p-2 bg-indigo-50 dark:bg-indigo-900/30 border border-indigo-200 dark:border-indigo-700 rounded">
-            <Image 
-              src="https://raw.githubusercontent.com/prebuiltui/prebuiltui/main/assets/aboutSection/bookEmoji.png" 
-              alt="Documentation"
-              width={40}
-              height={40}
-            />
+          <div className="size-10 p-2 bg-indigo-50 dark:bg-indigo-900/30 border border-indigo-200 dark:border-indigo-700 rounded flex items-center justify-center">
+            <FileCode className="w-6 h-6 text-indigo-600 dark:text-indigo-400" />
           </div>
           <div className="mt-5 space-y-2">
             <h3 className="text-base font-medium text-slate-600 dark:text-slate-300">Clean Code Practices</h3>
@@ -80,13 +60,8 @@ export default function AboutFeatures() {
         </div>
 
         <div>
-          <div className="size-10 p-2 bg-indigo-50 dark:bg-indigo-900/30 border border-indigo-200 dark:border-indigo-700 rounded">
-            <Image 
-              src="https://raw.githubusercontent.com/prebuiltui/prebuiltui/main/assets/aboutSection/boxEmoji.png" 
-              alt="Customizable"
-              width={40}
-              height={40}
-            />
+          <div className="size-10 p-2 bg-indigo-50 dark:bg-indigo-900/30 border border-indigo-200 dark:border-indigo-700 rounded flex items-center justify-center">
+            <Lightbulb className="w-6 h-6 text-indigo-600 dark:text-indigo-400" />
           </div>
           <div className="mt-5 space-y-2">
             <h3 className="text-base font-medium text-slate-600 dark:text-slate-300">Problem Solving</h3>
@@ -95,13 +70,8 @@ export default function AboutFeatures() {
         </div>
 
         <div>
-          <div className="size-10 p-2 bg-indigo-50 dark:bg-indigo-900/30 border border-indigo-200 dark:border-indigo-700 rounded">
-            <Image 
-              src="https://raw.githubusercontent.com/prebuiltui/prebuiltui/main/assets/aboutSection/brainEmoji.png" 
-              alt="Accessibility"
-              width={40}
-              height={40}
-            />
+          <div className="size-10 p-2 bg-indigo-50 dark:bg-indigo-900/30 border border-indigo-200 dark:border-indigo-700 rounded flex items-center justify-center">
+            <GraduationCap className="w-6 h-6 text-indigo-600 dark:text-indigo-400" />
           </div>
           <div className="mt-5 space-y-2">
             <h3 className="text-base font-medium text-slate-600 dark:text-slate-300">Continuous Learning</h3>

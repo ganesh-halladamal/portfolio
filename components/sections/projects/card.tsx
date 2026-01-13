@@ -72,9 +72,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
           transform: getTransformStyle(),
         }}
       >
-        {/* Card Content */}
         <div className="relative z-10 h-full flex flex-col">
-          {/* Project Image */}
           <div className="relative w-full h-48 mb-4 rounded-xl overflow-hidden shadow-lg shadow-indigo-600/20">
             <Image
               src={project.image}
@@ -93,7 +91,6 @@ export function ProjectCard({ project }: ProjectCardProps) {
             {project.description}
           </p>
 
-          {/* Tech Stack */}
           <div className="flex flex-wrap gap-2 mb-6">
             {project.techStack.map((tech) => (
               <span
@@ -105,7 +102,6 @@ export function ProjectCard({ project }: ProjectCardProps) {
             ))}
           </div>
 
-          {/* Links */}
           <div className="mt-auto flex gap-3">
             {project.githubUrl && (
               <a

@@ -120,7 +120,7 @@ class Particle {
   }
 }
 
-interface ParticleTextEffectProps {
+interface HeroProps {
   words?: string[];
 }
 
@@ -143,7 +143,7 @@ const DEFAULT_WORDS = [
   "INNOVATOR",
 ];
 
-export function ParticleTextEffect({ words = DEFAULT_WORDS }: ParticleTextEffectProps) {
+export function Hero({ words = DEFAULT_WORDS }: HeroProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const animationRef = useRef<number | undefined>(undefined);
   const particlesRef = useRef<Particle[]>([]);
@@ -179,7 +179,6 @@ export function ParticleTextEffect({ words = DEFAULT_WORDS }: ParticleTextEffect
     const offscreenCtx = offscreenCanvas.getContext("2d");
     if (!offscreenCtx) return;
 
-    // Calculate responsive font size
     const fontSize = Math.min(canvas.width / 8, 120);
     offscreenCtx.fillStyle = "white";
     offscreenCtx.font = `bold ${fontSize}px Arial`;
@@ -312,22 +311,16 @@ export function ParticleTextEffect({ words = DEFAULT_WORDS }: ParticleTextEffect
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
       
-      // Reinitialize with current word after resize
       if (words.length > 0) {
         nextWord(words[wordIndexRef.current], canvas);
       }
     };
 
-    // Initial size
     resizeCanvas();
-
-    // Start animation
     animate();
 
-    // Handle window resize
     window.addEventListener("resize", resizeCanvas);
 
-    // Mouse event handlers
     const handleMouseDown = (e: MouseEvent) => {
       mouseRef.current.isPressed = true;
       mouseRef.current.isRightClick = e.button === 2;

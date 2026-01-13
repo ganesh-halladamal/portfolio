@@ -17,7 +17,7 @@ interface NavBarProps {
   className?: string;
 }
 
-export function NavBar({ items, className }: NavBarProps) {
+export function AnimatedNavBar({ items, className }: NavBarProps) {
   const [activeTab, setActiveTab] = useState(items[0].name);
 
   return (

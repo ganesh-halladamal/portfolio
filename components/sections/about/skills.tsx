@@ -10,9 +10,9 @@ type Logo = {
   invertDark?: boolean;
 };
 
-type LogoCloudProps = React.ComponentProps<"div">;
+type SkillsGridProps = React.ComponentProps<"div">;
 
-export function LogoCloud({ className, ...props }: LogoCloudProps) {
+export function AboutSkills({ className, ...props }: SkillsGridProps) {
   return (
     <div
       className={cn(
@@ -24,151 +24,151 @@ export function LogoCloud({ className, ...props }: LogoCloudProps) {
       <div className="-translate-x-1/2 -top-px pointer-events-none absolute left-1/2 w-screen border-t" />
       
       {/* Row 1 */}
-      <LogoCard
+      <SkillCard
         className="relative border-r border-b bg-secondary dark:bg-secondary/30"
         logo={{ src: "/icons/tech/react-2.svg", alt: "React" }}
       >
         <PlusIcon className="-right-[12.5px] -bottom-[12.5px] absolute z-10 size-6" strokeWidth={1} />
-      </LogoCard>
+      </SkillCard>
       
-      <LogoCard
+      <SkillCard
         className="border-b border-r md:border-r"
         logo={{ src: "/icons/tech/next-js.svg", alt: "Next.js", invertDark: true }}
       />
       
-      <LogoCard
+      <SkillCard
         className="relative border-r border-b md:bg-secondary dark:md:bg-secondary/30"
         logo={{ src: "/icons/tech/typescript.svg", alt: "TypeScript" }}
       >
         <PlusIcon className="-right-[12.5px] -bottom-[12.5px] absolute z-10 size-6 md:hidden lg:block" strokeWidth={1} />
         <PlusIcon className="-bottom-[12.5px] -left-[12.5px] absolute z-10 hidden size-6 md:block" strokeWidth={1} />
-      </LogoCard>
+      </SkillCard>
       
-      <LogoCard
+      <SkillCard
         className="relative border-b bg-secondary md:bg-background lg:border-r dark:bg-secondary/30 md:dark:bg-background"
         logo={{ src: "/icons/tech/javascript-1.svg", alt: "JavaScript" }}
       />
       
-      <LogoCard
+      <SkillCard
         className="relative border-r border-b bg-background md:bg-secondary lg:bg-background dark:md:bg-secondary/30 lg:dark:bg-background"
         logo={{ src: "/icons/tech/tailwind-css-2.svg", alt: "Tailwind CSS" }}
       >
         <PlusIcon className="-right-[12.5px] -bottom-[12.5px] absolute z-10 size-6 md:hidden" strokeWidth={1} />
-      </LogoCard>
+      </SkillCard>
       
-      <LogoCard
+      <SkillCard
         className="border-b md:border-r lg:bg-secondary dark:lg:bg-secondary/30"
         logo={{ src: "/icons/tech/nodejs-icon.svg", alt: "Node.js" }}
       />
       
       {/* Row 2 */}
-      <LogoCard
+      <SkillCard
         className="relative border-r border-b bg-secondary md:bg-background lg:bg-secondary dark:bg-secondary/30 md:dark:bg-background lg:dark:bg-secondary/30"
         logo={{ src: "/icons/tech/mongodb-icon-1.svg", alt: "MongoDB" }}
       >
         <PlusIcon className="-right-[12.5px] -bottom-[12.5px] absolute z-10 size-6 lg:hidden" strokeWidth={1} />
-      </LogoCard>
+      </SkillCard>
       
-      <LogoCard
+      <SkillCard
         className="border-b md:border-r"
         logo={{ src: "/icons/tech/postgresql.svg", alt: "PostgreSQL" }}
       />
       
-      <LogoCard
+      <SkillCard
         className="relative border-r border-b md:bg-secondary dark:md:bg-secondary/30"
         logo={{ src: "/icons/tech/mysql-ar21.svg", alt: "MySQL" }}
       >
         <PlusIcon className="-right-[12.5px] -bottom-[12.5px] absolute z-10 size-6 md:hidden lg:block" strokeWidth={1} />
         <PlusIcon className="-bottom-[12.5px] -left-[12.5px] absolute z-10 hidden size-6 md:block" strokeWidth={1} />
-      </LogoCard>
+      </SkillCard>
       
-      <LogoCard
+      <SkillCard
         className="relative border-b bg-secondary md:bg-background lg:border-r dark:bg-secondary/30 md:dark:bg-background"
         logo={{ src: "/icons/tech/docker-3.svg", alt: "Docker" }}
       />
       
-      <LogoCard
+      <SkillCard
         className="relative border-r border-b bg-background md:bg-secondary lg:bg-background dark:md:bg-secondary/30 lg:dark:bg-background"
         logo={{ src: "/icons/tech/kubernets.svg", alt: "Kubernetes" }}
       >
         <PlusIcon className="-right-[12.5px] -bottom-[12.5px] absolute z-10 size-6 md:hidden" strokeWidth={1} />
-      </LogoCard>
+      </SkillCard>
       
-      <LogoCard
+      <SkillCard
         className="border-b md:border-r lg:bg-secondary dark:lg:bg-secondary/30"
         logo={{ src: "/icons/tech/aws-2.svg", alt: "AWS", invertDark: true }}
       />
       
       {/* Row 3 */}
-      <LogoCard
+      <SkillCard
         className="relative border-r border-b bg-secondary md:bg-background lg:bg-secondary dark:bg-secondary/30 md:dark:bg-background lg:dark:bg-secondary/30"
         logo={{ src: "/icons/tech/git.svg", alt: "Git", invertDark: true }}
       >
         <PlusIcon className="-right-[12.5px] -bottom-[12.5px] absolute z-10 size-6 lg:hidden" strokeWidth={1} />
-      </LogoCard>
+      </SkillCard>
       
-      <LogoCard
+      <SkillCard
         className="border-b md:border-r"
         logo={{ src: "/icons/tech/python-5.svg", alt: "Python" }}
       />
       
-      <LogoCard
+      <SkillCard
         className="relative border-r border-b md:bg-secondary dark:md:bg-secondary/30"
         logo={{ src: "/icons/tech/php-ar21.svg", alt: "PHP" }}
       >
         <PlusIcon className="-right-[12.5px] -bottom-[12.5px] absolute z-10 size-6 md:hidden lg:block" strokeWidth={1} />
         <PlusIcon className="-bottom-[12.5px] -left-[12.5px] absolute z-10 hidden size-6 md:block" strokeWidth={1} />
-      </LogoCard>
+      </SkillCard>
       
-      <LogoCard
+      <SkillCard
         className="relative border-b bg-secondary md:bg-background lg:border-r dark:bg-secondary/30 md:dark:bg-background"
         logo={{ src: "/icons/tech/java-14.svg", alt: "Java" }}
       />
       
-      <LogoCard
+      <SkillCard
         className="relative border-r border-b bg-background md:bg-secondary lg:bg-background dark:md:bg-secondary/30 lg:dark:bg-background"
         logo={{ src: "/icons/tech/c-1.svg", alt: "C" }}
       >
         <PlusIcon className="-right-[12.5px] -bottom-[12.5px] absolute z-10 size-6 md:hidden" strokeWidth={1} />
-      </LogoCard>
+      </SkillCard>
       
-      <LogoCard
+      <SkillCard
         className="border-b md:border-r lg:bg-secondary dark:lg:bg-secondary/30"
         logo={{ src: "/icons/tech/html-1.svg", alt: "HTML" }}
       />
       
       {/* Row 4 */}
-      <LogoCard
+      <SkillCard
         className="relative border-r bg-secondary md:bg-background lg:bg-secondary dark:bg-secondary/30 md:dark:bg-background lg:dark:bg-secondary/30"
         logo={{ src: "/icons/tech/css-3.svg", alt: "CSS" }}
       >
         <PlusIcon className="-right-[12.5px] -bottom-[12.5px] absolute z-10 size-6 lg:hidden" strokeWidth={1} />
-      </LogoCard>
+      </SkillCard>
       
-      <LogoCard
+      <SkillCard
         className="md:border-r"
         logo={{ src: "/icons/tech/sass-1.svg", alt: "SASS" }}
       />
       
-      <LogoCard
+      <SkillCard
         className="relative border-r md:bg-secondary dark:md:bg-secondary/30"
         logo={{ src: "/icons/tech/flutter.svg", alt: "Flutter" }}
       >
         <PlusIcon className="-right-[12.5px] -bottom-[12.5px] absolute z-10 size-6 md:hidden lg:block" strokeWidth={1} />
         <PlusIcon className="-bottom-[12.5px] -left-[12.5px] absolute z-10 hidden size-6 md:block" strokeWidth={1} />
-      </LogoCard>
+      </SkillCard>
       
-      <LogoCard
+      <SkillCard
         className="relative bg-secondary md:bg-background lg:border-r dark:bg-secondary/30 md:dark:bg-background"
         logo={{ src: "/icons/tech/bootstrap-4.svg", alt: "Bootstrap" }}
       />
       
-      <LogoCard
+      <SkillCard
         className="relative border-r bg-background md:bg-secondary lg:bg-background dark:md:bg-secondary/30 lg:dark:bg-background"
         logo={{ src: "/icons/tech/nginx-1.svg", alt: "Nginx" }}
       />
       
-      <LogoCard
+      <SkillCard
         className="md:border-r lg:bg-secondary dark:lg:bg-secondary/30"
         logo={{ src: "/icons/tech/postman.svg", alt: "Postman" }}
       />
@@ -178,11 +178,11 @@ export function LogoCloud({ className, ...props }: LogoCloudProps) {
   );
 }
 
-type LogoCardProps = React.ComponentProps<"div"> & {
+type SkillCardProps = React.ComponentProps<"div"> & {
   logo: Logo;
 };
 
-function LogoCard({ logo, className, children, ...props }: LogoCardProps) {
+function SkillCard({ logo, className, children, ...props }: SkillCardProps) {
   return (
     <div
       className={cn(

@@ -1,5 +1,24 @@
 import { projects } from "@/lib/data";
-import { ProjectCard } from "@/components/ui/project-card";
+import { ProjectCard } from "@/components/sections/projects/card";
+import { generateMetadata as generateSEOMetadata } from "@/lib/seo";
+import { Metadata } from "next";
+
+export const metadata: Metadata = generateSEOMetadata({
+  title: "Projects",
+  description:
+    "Explore Ganesh Halladamal's portfolio of web development projects including DevTinder, AI-Powered Travel Advisor, Smart Attendance Management, and more. Built with React, Next.js, Node.js, and modern technologies.",
+  url: "/projects",
+  keywords: [
+    "projects",
+    "portfolio projects",
+    "web applications",
+    "react projects",
+    "next.js projects",
+    "full stack projects",
+    "DevTinder",
+    "AI Travel Advisor",
+  ],
+});
 
 export default function ProjectsPage() {
   return (

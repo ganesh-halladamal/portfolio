@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import { Home, User, FolderOpen, Mail } from "lucide-react";
-import { NavBar } from "@/components/ui/tubelight-navbar";
+import { AnimatedNavBar } from "@/components/layout/animated-navbar";
 import { ThemeToggle } from "@/components/common/theme-toggle";
 
 export function Navbar() {
@@ -21,7 +21,7 @@ export function Navbar() {
       </div>
       
       {/* Tubelight navigation bar */}
-      <NavBar items={navItems} />
+      <AnimatedNavBar items={navItems} />
     </>
   );
 }

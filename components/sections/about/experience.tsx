@@ -2,7 +2,7 @@
 
 import { Briefcase, Calendar } from "lucide-react";
 
-export function ExperienceSection() {
+export function AboutExperience() {
   return (
     <div className="w-full py-8">
       <h2 className="text-3xl font-semibold text-center mb-12 text-slate-700 dark:text-slate-200">
@@ -11,10 +11,8 @@ export function ExperienceSection() {
       
       <div className="max-w-4xl mx-auto px-4">
         <div className="relative border-l-2 border-indigo-600 dark:border-indigo-400 pl-8 pb-8">
-          {/* Timeline dot */}
           <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-indigo-600 dark:bg-indigo-400 border-4 border-background"></div>
           
-          {/* Experience card */}
           <div className="bg-white dark:bg-slate-800 rounded-lg border border-slate-200 dark:border-slate-700 p-6 shadow-sm hover:shadow-md transition-shadow">
             <div className="flex items-start gap-4">
               <div className="p-3 bg-indigo-50 dark:bg-indigo-900/30 rounded-lg">

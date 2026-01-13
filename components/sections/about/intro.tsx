@@ -4,7 +4,7 @@ import React from "react";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 
-export default function AboutDemo() {
+export function AboutIntro() {
   const handleResumeClick = () => {
     window.open('https://docs.google.com/document/d/1CUwpkZBSb2_eC8k3x4tAGyDmGCId88XbEq1jcS0wuDM/edit', '_blank');
   };

@@ -25,7 +25,7 @@ interface FooterProps {
   className?: string;
 }
 
-export const ModernAnimatedFooter = ({
+export const AnimatedFooter = ({
   brandName = "YourBrand",
   brandDescription = "Your description here",
   socialLinks = [],
