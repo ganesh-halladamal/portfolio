@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+# Disallow private/admin areas
+Disallow: /api/
+Disallow: /_next/
+Disallow: /admin/
+
+# Sitemap location
+Sitemap: https://ganeshhalladamal.com/sitemap.xml
