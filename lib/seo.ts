@@ -5,7 +5,7 @@ export const SITE_CONFIG = {
   title: "Ganesh Halladamal | Full Stack Developer",
   description:
     "Experienced Full Stack Developer specializing in React, Next.js, Node.js, and MongoDB. Building modern, scalable, and user-friendly web applications.",
-  url: process.env.NEXT_PUBLIC_SITE_URL || "https://ganeshph.com",
+  url: process.env.NEXT_PUBLIC_SITE_URL || "https://ganeshph.online",
   ogImage: "/og-image.jpg",
   keywords: [
     "Full Stack Developer",
