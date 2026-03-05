@@ -1,5 +1,5 @@
-import { NextRequest, NextResponse } from 'next/server';
-import nodemailer from 'nodemailer';
+import { NextRequest, NextResponse } from "next/server";
+import nodemailer from "nodemailer";
 
 export async function POST(request: NextRequest) {
   try {
@@ -8,36 +8,37 @@ export async function POST(request: NextRequest) {
     // Validate input
     if (!name || !email || !message) {
       return NextResponse.json(
-        { error: 'All fields are required' },
+        { error: "All fields are required" },
         { status: 400 }
       );
     }
 
     // Validate environment variables
     if (!process.env.EMAIL_USER || !process.env.EMAIL_PASSWORD) {
-      console.error('Email credentials not configured');
+      console.error("Email credentials not configured");
       return NextResponse.json(
-        { error: 'Email service not configured' },
+        { error: "Email service not configured. Please contact the administrator." },
         { status: 500 }
       );
     }
 
-    console.log('Creating transporter...');
-
-    // Create transporter with Gmail service
+    // Create transporter with explicit Gmail SMTP settings
     const transporter = nodemailer.createTransport({
-      service: 'gmail',
+      host: "smtp.gmail.com",
+      port: 587,
+      secure: false,
       auth: {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASSWORD,
       },
+      tls: {
+        rejectUnauthorized: false,
+      },
     });
-
-    console.log('Transporter created, preparing email...');
 
     // Email options
     const mailOptions = {
-      from: process.env.EMAIL_USER,
+      from: `"Portfolio Contact" <${process.env.EMAIL_USER}>`,
       to: process.env.EMAIL_TO || process.env.EMAIL_USER,
       subject: `Portfolio Contact: Message from ${name}`,
       html: `
@@ -55,23 +56,24 @@ export async function POST(request: NextRequest) {
       replyTo: email,
     };
 
-    console.log('Sending email...');
-
     // Send email
     const info = await transporter.sendMail(mailOptions);
-    console.log('Email sent successfully:', info.messageId);
+    console.log("Email sent successfully:", info.messageId);
 
     return NextResponse.json(
-      { message: 'Email sent successfully', messageId: info.messageId },
+      { message: "Email sent successfully", messageId: info.messageId },
       { status: 200 }
     );
   } catch (error) {
-    console.error('Detailed error sending email:', error);
-    const errorMessage = error instanceof Error ? error.message : 'Unknown error';
-    console.error('Error message:', errorMessage);
-    
+    console.error("Error sending email:", error);
+    const errorMessage = error instanceof Error ? error.message : "Unknown error";
+    console.error("Error details:", errorMessage);
+
     return NextResponse.json(
-      { error: 'Failed to send email', details: errorMessage },
+      {
+        error: "Failed to send email. Please try again or contact directly via email.",
+        details: process.env.NODE_ENV === "development" ? errorMessage : undefined,
+      },
       { status: 500 }
     );
   }
