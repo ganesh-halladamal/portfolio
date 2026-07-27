@@ -1,6 +1,6 @@
 export const SITE_CONFIG = {
   name: "Ganesh Halladamal",
-  role: "Full Stack Developer",
+  role: "ETL Engineer & Data Engineering Enthusiast",
   email: "halladmalganesh@gmail.com",
   phone: "+917022815741",
   location: "India",

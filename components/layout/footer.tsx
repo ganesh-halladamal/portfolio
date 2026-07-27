@@ -38,7 +38,7 @@ export function Footer() {
   return (
     <AnimatedFooter
       brandName={SITE_CONFIG.name}
-      brandDescription={`${SITE_CONFIG.role} passionate about building modern web applications and creating exceptional user experiences.`}
+      brandDescription={`${SITE_CONFIG.role} building scalable data pipelines and turning raw data into business insights.`}
       socialLinks={socialLinks}
       navLinks={navLinks}
       creatorName={SITE_CONFIG.name}

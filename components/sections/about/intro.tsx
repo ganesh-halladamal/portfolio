@@ -30,23 +30,23 @@ export function AboutIntro() {
           I&apos;m <span className="font-semibold text-slate-800 dark:text-slate-100 relative inline-block">
             Ganesh Halladamal
             <span className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-indigo-600 to-purple-600"></span>
-          </span>, a passionate <span className="font-semibold text-slate-800 dark:text-slate-100 relative inline-block">
-            Full Stack Developer
+          </span>, an <span className="font-semibold text-slate-800 dark:text-slate-100 relative inline-block">
+            ETL Engineer
             <span className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-indigo-600 to-purple-600"></span>
-          </span> with expertise in building modern, 
-          responsive web applications that deliver exceptional user experiences. Currently working as a 
-          Software Development Engineer at Nighan2 Labs Pvt. Ltd. since March 2025.
+          </span> and Data Engineering enthusiast passionate about building scalable data pipelines, 
+          transforming raw data into meaningful insights, and ensuring high-quality, reliable data for business intelligence. 
+          I enjoy working with large datasets and solving complex data integration challenges through efficient ETL workflows.
         </p>
         
         <p className="mt-4">
-          With a Bachelor&apos;s degree in Computer Applications and hands-on experience in technologies like 
-          React, Next.js, Node.js, and MongoDB, I specialize in creating scalable solutions that solve 
-          real-world problems.
+          My expertise includes SQL, Python, PySpark, Pandas, Data Warehousing, ETL Development, Source-to-Target Mapping, 
+          Data Validation, Data Reconciliation, and SCD Type 1 & Type 2 implementations. I have hands-on experience with 
+          modern data platforms and tools such as Snowflake, Databricks, and Informatica PowerCenter.
         </p>
         
         <p className="mt-4">
-          In my current role, I focus on developing full-stack applications, implementing responsive UI components, 
-          and collaborating with cross-functional teams to deliver high-quality software solutions.
+          I focus on building scalable ETL pipelines, improving data quality, and delivering trusted data that empowers 
+          organizations to make informed, data-driven decisions while continuously expanding my knowledge of cloud data technologies.
         </p>
         
         <div className="flex flex-wrap gap-4 mt-8 relative" style={{ zIndex: 9999 }}>

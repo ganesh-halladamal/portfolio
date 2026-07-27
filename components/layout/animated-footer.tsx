@@ -84,16 +84,16 @@ export const AnimatedFooter = ({
 
           <div className="mt-20 md:mt-24 flex flex-col gap-2 md:gap-1 items-center justify-center md:flex-row md:items-center md:justify-between px-4 md:px-0">
             <p className="text-base text-muted-foreground text-center md:text-left">
-              ©{new Date().getFullYear()} {brandName}. All rights are not reserved. You can fork and use it 😊
+              ©{new Date().getFullYear()}. All rights are not reserved. You can fork and use it 😊
             </p>
             {creatorName && creatorUrl && (
               <nav className="flex gap-4">
                 <Link
                   href={creatorUrl}
                   target="_blank"
-                  className="text-base text-muted-foreground hover:text-foreground transition-colors duration-300 hover:font-medium"
+                  className="text-base text-muted-foreground hover:text-foreground transition-colors duration-300 hover:font-medium flex items-center gap-1"
                 >
-                  Crafted by {creatorName}
+                  Crafted with <span className="text-red-500">♥</span> by {creatorName}
                 </Link>
               </nav>
             )}

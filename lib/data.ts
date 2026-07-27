@@ -3,6 +3,58 @@ import { Project, Skill, Experience, ProjectCategory, SkillCategory, SkillLevel 
 export const projects: Project[] = [
   {
     id: "1",
+    title: "AWS Resource Usage Data Validation Tool",
+    description:
+      "A Python (Boto3) automation tool to extract, validate, and report AWS resource usage data, mirroring core ETL extract-and-validate workflows.",
+    longDescription:
+      "Developed a Python (Boto3) automation tool to extract, validate, and report AWS resource usage data, mirroring core ETL extract-and-validate workflows. Integrated CloudWatch metrics for automated data accuracy checks, generating usage reports through structured data reconciliation and source-to-target comparison.",
+    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&q=80",
+    techStack: ["Python", "AWS", "CloudWatch", "Boto3"],
+    featured: true,
+    category: ProjectCategory.TOOL,
+    completedAt: new Date("2025-03-01"),
+  },
+  {
+    id: "2",
+    title: "SQL Data Validation & API Test Suite",
+    description:
+      "A Python-based test suite to validate source-to-target data accuracy across MySQL and MongoDB, with automated REST API response validation.",
+    longDescription:
+      "Built a Python-based test suite to validate source-to-target data accuracy across MySQL and MongoDB, comparing record counts, field values, and data types after transformation. Automated REST API response validation (status codes, schema, payload accuracy) and logged defects with root-cause notes to speed up debugging and regression cycles.",
+    image: "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=800&q=80",
+    techStack: ["Python", "SQL", "REST APIs", "MySQL", "MongoDB"],
+    featured: true,
+    category: ProjectCategory.TOOL,
+    completedAt: new Date("2025-02-01"),
+  },
+  {
+    id: "3",
+    title: "RAG Data Retrieval Validation Framework",
+    description:
+      "A validation framework for Retrieval-Augmented Generation pipelines, testing retrieved data accuracy and consistency against source documents.",
+    longDescription:
+      "Designed and executed test scenarios for a Retrieval-Augmented Generation pipeline, validating retrieved data accuracy and consistency against source documents. Built regression checks to catch data drift and mismatches between source content and retrieved outputs across pipeline updates.",
+    image: "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=800&q=80",
+    techStack: ["Python", "LLMs", "Retrieval-Augmented Generation"],
+    featured: true,
+    category: ProjectCategory.TOOL,
+    completedAt: new Date("2025-01-01"),
+  },
+  {
+    id: "4",
+    title: "CRUD Data Integrity Test Suite",
+    description:
+      "A full-stack test suite validating REST API and MongoDB data integrity across CRUD operations with functional and regression testing.",
+    longDescription:
+      "Tested a full-stack platform's REST API and MongoDB integration, designing test cases to validate data integrity across CRUD operations. Performed functional and regression testing to ensure accurate data persistence and consistency between application layers.",
+    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80",
+    techStack: ["React.js", "Node.js", "MongoDB", "REST APIs"],
+    featured: true,
+    category: ProjectCategory.TOOL,
+    completedAt: new Date("2024-12-15"),
+  },
+  {
+    id: "5",
     title: "DevTinder",
     description:
       "A Tinder-like experience for developers, helping them connect based on their skills, projects, and interests.",
@@ -16,7 +68,7 @@ export const projects: Project[] = [
     completedAt: new Date("2024-12-01"),
   },
   {
-    id: "2",
+    id: "6",
     title: "AI-Powered Travel Advisor",
     description:
       "A comprehensive travel planning platform that helps users discover destinations, explore accommodations, and generate personalized itineraries using AI.",
@@ -31,7 +83,7 @@ export const projects: Project[] = [
     completedAt: new Date("2024-11-01"),
   },
   {
-    id: "3",
+    id: "7",
     title: "Smart Attendance Management Using Face Recognition",
     description:
       "An intelligent and efficient web-based application to automate attendance tracking using facial recognition.",
@@ -43,34 +95,6 @@ export const projects: Project[] = [
     featured: true,
     category: ProjectCategory.WEB_APP,
     completedAt: new Date("2024-03-01"),
-  },
-  {
-    id: "4",
-    title: "Paritranaya IAS Academy",
-    description:
-      "A comprehensive website for an IAS coaching academy, providing information about courses, faculty, and student resources.",
-    longDescription:
-      "A modern, responsive website for Paritranaya IAS Academy built with React and Supabase. The platform provides comprehensive information about courses, faculty, admission processes, and student resources for aspiring civil servants.",
-    image: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=800&q=80",
-    techStack: ["React", "Supabase", "JavaScript", "CSS"],
-    liveUrl: "https://paritranayaiasacademy.in/",
-    featured: true,
-    category: ProjectCategory.WEB_APP,
-    completedAt: new Date("2024-09-01"),
-  },
-  {
-    id: "5",
-    title: "Karnataka Pharmacists Welfare & Development Trust",
-    description:
-      "Official website for Karnataka Pharmacists Welfare & Development Trust, providing information about trust activities and member services.",
-    longDescription:
-      "A professional website for Karnataka Pharmacists Welfare & Development Trust built with Next.js and Firebase. The platform serves as a central hub for trust information, member services, events, and welfare programs for pharmacists across Karnataka.",
-    image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80",
-    techStack: ["Next.js", "Firebase", "React", "Tailwind CSS"],
-    liveUrl: "https://karnatakapharmacisttrust.com/",
-    featured: true,
-    category: ProjectCategory.WEB_APP,
-    completedAt: new Date("2024-10-01"),
   },
 ];
 
