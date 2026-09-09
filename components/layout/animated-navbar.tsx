@@ -1,10 +1,80 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { LucideIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
+
+/** Matches the `sm` breakpoint, below which the dock is docked to the bottom. */
+const MOBILE_QUERY = "(max-width: 639px)";
+
+/** Breathing room kept between the dock and the footer credit row. */
+const CLEARANCE = 8;
+
+/**
+ * On mobile the dock is fixed to the bottom of the viewport, so it passes over
+ * the footer's credit row while scrolling. This yields the dock away once that
+ * row reaches it, and brings it back afterwards. Above `sm` the dock sits at the
+ * top of the page, so the whole thing is skipped.
+ */
+function useYieldToFooterCredit(dockRef: React.RefObject<HTMLDivElement | null>) {
+  const [isYielded, setIsYielded] = useState(false);
+  // The dock lives in the root layout and survives navigation, while the footer
+  // remounts per route, so re-bind whenever the route changes.
+  const pathname = usePathname();
+
+  useEffect(() => {
+    const credit = document.querySelector<HTMLElement>("[data-footer-credit]");
+    if (!credit) {
+      setIsYielded(false);
+      return;
+    }
+
+    const mobile = window.matchMedia(MOBILE_QUERY);
+    let frame = 0;
+
+    const update = () => {
+      frame = 0;
+      const dock = dockRef.current;
+
+      if (!dock || !mobile.matches) {
+        setIsYielded(false);
+        return;
+      }
+
+      // Derive the dock's footprint from layout metrics rather than its bounding
+      // rect: the rect moves once the dock is translated away, which would make
+      // this measurement oscillate.
+      const offset = Number.parseFloat(window.getComputedStyle(dock).marginBottom) || 0;
+      const zoneTop = window.innerHeight - dock.offsetHeight - offset;
+
+      const rect = credit.getBoundingClientRect();
+      const hasEnteredView = rect.top < window.innerHeight && rect.bottom > 0;
+
+      setIsYielded(hasEnteredView && rect.bottom > zoneTop - CLEARANCE);
+    };
+
+    const schedule = () => {
+      if (!frame) frame = window.requestAnimationFrame(update);
+    };
+
+    update();
+    window.addEventListener("scroll", schedule, { passive: true });
+    window.addEventListener("resize", schedule);
+    mobile.addEventListener("change", schedule);
+
+    return () => {
+      window.removeEventListener("scroll", schedule);
+      window.removeEventListener("resize", schedule);
+      mobile.removeEventListener("change", schedule);
+      if (frame) window.cancelAnimationFrame(frame);
+    };
+  }, [dockRef, pathname]);
+
+  return isYielded;
+}
 
 interface NavItem {
   name: string;
@@ -19,13 +89,29 @@ interface NavBarProps {
 
 export function AnimatedNavBar({ items, className }: NavBarProps) {
   const [activeTab, setActiveTab] = useState(items[0].name);
+  const dockRef = useRef<HTMLDivElement>(null);
+  const isYielded = useYieldToFooterCredit(dockRef);
 
   return (
     <div
+      ref={dockRef}
       className={cn(
-        "fixed bottom-0 sm:top-0 left-1/2 -translate-x-1/2 z-50 mb-6 sm:pt-6",
+        "fixed bottom-0 sm:top-0 left-1/2 z-50 sm:pt-6",
+        // Keep the mobile dock above the iOS home indicator.
+        "mb-[calc(1.5rem+env(safe-area-inset-bottom))] sm:mb-0",
         className
       )}
+      style={{
+        transition: "transform 300ms ease-out, opacity 300ms ease-out",
+        // On mobile: -50% centres the dock; yielded adds another full height + gap
+        // so it slides cleanly below the viewport.
+        // On sm+ (top nav) the sm:top-0 class positions it; we keep centring only.
+        transform: isYielded
+          ? "translate(-50%, calc(100% + 2rem))"
+          : "translate(-50%, 0)",
+        opacity: isYielded ? 0 : 1,
+        pointerEvents: isYielded ? "none" : undefined,
+      }}
     >
       <div className="flex items-center gap-3 bg-background/80 border border-border backdrop-blur-lg py-1 px-1 rounded-full shadow-lg">
         {items.map((item) => {

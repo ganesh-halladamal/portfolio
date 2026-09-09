@@ -87,7 +87,9 @@ export const AnimatedFooter = ({
               ©{new Date().getFullYear()}. All rights are not reserved. You can fork and use it 😊
             </p>
             {creatorName && creatorUrl && (
-              <nav className="flex gap-4">
+              // data-footer-credit is the hook the mobile nav dock uses to detect
+              // that this row has reached it, so it can move out of the way.
+              <nav data-footer-credit className="flex gap-4">
                 <Link
                   href={creatorUrl}
                   target="_blank"

@@ -35,39 +35,60 @@ export function AboutExperience() {
                 
                 <div className="space-y-3">
                   <p className="text-slate-700 dark:text-slate-300">
-                    Currently working as a Software Development Engineer, focusing on building scalable web applications 
-                    and implementing modern development practices.
+                    Working across data integration and quality assurance, validating end-to-end data flows
+                    and automating data quality checks to keep source and target systems consistent.
                   </p>
                   
                   <div className="space-y-2">
                     <h4 className="font-semibold text-slate-900 dark:text-slate-100 text-sm">
                       Key Responsibilities:
                     </h4>
-                    <ul className="list-disc list-inside space-y-1 text-sm text-slate-700 dark:text-slate-300">
-                      <li>Developing and maintaining full-stack web applications</li>
-                      <li>Implementing responsive UI components with React and Next.js</li>
-                      <li>Building RESTful APIs and integrating with databases</li>
-                      <li>Collaborating with cross-functional teams in agile environment</li>
-                      <li>Writing clean, maintainable, and well-documented code</li>
+                    <ul className="list-disc list-outside pl-5 space-y-2 text-sm text-slate-700 dark:text-slate-300">
+                      <li>
+                        Analyzed business requirements, functional specs, source-to-target mapping documents,
+                        and technical specs to understand data flows, transformation logic, and business rules.
+                      </li>
+                      <li>
+                        Designed and executed functional, regression, integration, and data validation test cases
+                        for application and data integration workflows, ensuring accuracy and consistency across systems.
+                      </li>
+                      <li>
+                        Performed SQL-based source-to-target validation and data reconciliation, validating record
+                        counts, field-level values, NULLs, duplicates, data types, formats, and mandatory fields.
+                      </li>
+                      <li>
+                        Built and maintained Python automation scripts using Pandas for data profiling,
+                        reconciliation, duplicate identification, and data quality validation, reducing manual
+                        validation effort.
+                      </li>
+                      <li>
+                        Validated API and database integrations and performed defect investigation by tracing data
+                        across application layers, source systems, transformation logic, and target databases.
+                      </li>
+                      <li>
+                        Logged, tracked, and retested defects in JIRA; collaborated with development teams on
+                        root-cause analysis and supported regression testing after fixes.
+                      </li>
                     </ul>
                   </div>
                   
                   <div className="flex flex-wrap gap-2 mt-4">
-                    <span className="px-3 py-1 bg-indigo-50 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 rounded-full text-xs font-medium">
-                      React
-                    </span>
-                    <span className="px-3 py-1 bg-indigo-50 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 rounded-full text-xs font-medium">
-                      Next.js
-                    </span>
-                    <span className="px-3 py-1 bg-indigo-50 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 rounded-full text-xs font-medium">
-                      TypeScript
-                    </span>
-                    <span className="px-3 py-1 bg-indigo-50 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 rounded-full text-xs font-medium">
-                      Node.js
-                    </span>
-                    <span className="px-3 py-1 bg-indigo-50 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 rounded-full text-xs font-medium">
-                      MongoDB
-                    </span>
+                    {[
+                      "SQL",
+                      "Python",
+                      "Pandas",
+                      "Data Validation",
+                      "ETL Testing",
+                      "API Testing",
+                      "JIRA",
+                    ].map((skill) => (
+                      <span
+                        key={skill}
+                        className="px-3 py-1 bg-indigo-50 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 rounded-full text-xs font-medium"
+                      >
+                        {skill}
+                      </span>
+                    ))}
                   </div>
                 </div>
               </div>

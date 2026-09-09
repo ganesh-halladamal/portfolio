@@ -23,7 +23,7 @@ export const metadata: Metadata = generateSEOMetadata({
 
 export default function AboutPage() {
   return (
-    <main className="min-h-screen bg-background pt-40 sm:pt-48 pb-20">
+    <main className="min-h-[100dvh] bg-background pt-40 sm:pt-48 pb-20">
       {/* About Intro Section */}
       <div className="mb-16">
         <AboutIntro />

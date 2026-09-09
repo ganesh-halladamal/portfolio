@@ -54,7 +54,7 @@ export default function ContactPage() {
   };
 
   return (
-    <main className="min-h-screen pt-40 sm:pt-48 pb-16">
+    <main className="min-h-[100dvh] pt-40 sm:pt-48 pb-16">
       <div className="container mx-auto px-4">
         <section className="flex flex-col md:flex-row items-start justify-center gap-10 max-w-6xl mx-auto">
           {/* Contact Form */}

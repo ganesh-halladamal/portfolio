@@ -36,6 +36,9 @@ export async function POST(request: NextRequest) {
       },
     });
 
+    // Verify SMTP connection before attempting to send
+    await transporter.verify();
+
     // Email options
     const mailOptions = {
       from: `"Portfolio Contact" <${process.env.EMAIL_USER}>`,
@@ -67,11 +70,22 @@ export async function POST(request: NextRequest) {
   } catch (error) {
     console.error("Error sending email:", error);
     const errorMessage = error instanceof Error ? error.message : "Unknown error";
+    const errorCode = (error as NodeJS.ErrnoException).code;
+
+    // Give a specific hint for the most common failure so it's easy to diagnose.
+    const isAuthError =
+      errorCode === "EAUTH" ||
+      (errorMessage.includes("535") || errorMessage.includes("Username and Password"));
+
+    const userMessage = isAuthError
+      ? "Email authentication failed. Please check the Gmail App Password in your environment config."
+      : "Failed to send email. Please try again or contact directly via email.";
+
     console.error("Error details:", errorMessage);
 
     return NextResponse.json(
       {
-        error: "Failed to send email. Please try again or contact directly via email.",
+        error: userMessage,
         details: process.env.NODE_ENV === "development" ? errorMessage : undefined,
       },
       { status: 500 }

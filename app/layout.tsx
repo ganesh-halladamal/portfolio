@@ -116,7 +116,12 @@ export default function RootLayout({
       <body className={inter.className}>
         <ThemeProvider defaultTheme="system" storageKey="portfolio-theme">
           <Navbar />
-          <div className="flex min-h-screen flex-col">
+          {/*
+            On mobile the nav dock is fixed to the bottom of the viewport, so the
+            page needs bottom clearance for its last row (the footer's credit line)
+            to scroll clear of it. From `sm` up the dock moves to the top.
+          */}
+          <div className="flex min-h-[100dvh] flex-col pb-[calc(6rem+env(safe-area-inset-bottom))] sm:pb-0">
             <main className="flex-1">{children}</main>
             <ConditionalFooter />
           </div>

@@ -127,27 +127,87 @@ interface HeroProps {
 const DEFAULT_WORDS = [
   "HELLO",
   "I'M GANESH",
-  "DATA",
-  "ENGINEER",
-  "ETL",
-  "ENGINEER",
-  "DATA WAREHOUSE",
-  "ENTHUSIAST",
-  "SQL",
-  "ENTHUSIAST",
-  "DATA QUALITY",
-  "ADVOCATE",
-  "ETL & DATA",
-  "INTEGRATION",
-  "ANALYTICS",
-  "ENGINEERING",
+  "DATA ENGINEER",
+  "ETL ENGINEER",
+  "DATA WAREHOUSE ENTHUSIAST",
+  "SQL ENTHUSIAST",
+  "DATA QUALITY ADVOCATE",
+  "ETL & DATA INTEGRATION",
+  "ANALYTICS ENGINEERING",
   "LEARNER",
   "TRAVELLER",
-  "PROBLEM",
-  "SOLVER",
+  "PROBLEM SOLVER",
   "TECH LOVER",
   "INNOVATOR",
 ];
+
+/** Viewport width below which we treat the canvas as a mobile layout. */
+const MOBILE_BREAKPOINT = 640;
+
+/** Fraction of the canvas width/height the text is allowed to occupy. */
+const HORIZONTAL_SAFE_AREA = 0.88;
+const VERTICAL_SAFE_AREA = 0.7;
+
+const LINE_HEIGHT_RATIO = 1.1;
+const MIN_FONT_SIZE = 16;
+
+/**
+ * Greedily wraps `text` into lines that each fit within `maxWidth`.
+ * A single word wider than `maxWidth` is kept on its own line (the caller
+ * shrinks the font size until it fits).
+ */
+function wrapText(ctx: CanvasRenderingContext2D, text: string, maxWidth: number): string[] {
+  const words = text.split(/\s+/).filter(Boolean);
+  const lines: string[] = [];
+  let current = "";
+
+  for (const word of words) {
+    const candidate = current ? `${current} ${word}` : word;
+    if (!current || ctx.measureText(candidate).width <= maxWidth) {
+      current = candidate;
+    } else {
+      lines.push(current);
+      current = word;
+    }
+  }
+
+  if (current) lines.push(current);
+  return lines.length > 0 ? lines : [text];
+}
+
+/**
+ * Works out the largest font size at which `text` fits inside the canvas,
+ * wrapping onto multiple lines when needed. Leaves `ctx.font` set to the
+ * resolved size so the caller can draw immediately.
+ */
+function layoutText(
+  ctx: CanvasRenderingContext2D,
+  text: string,
+  canvasWidth: number,
+  canvasHeight: number
+): { lines: string[]; lineHeight: number } {
+  const maxWidth = canvasWidth * HORIZONTAL_SAFE_AREA;
+  const maxHeight = canvasHeight * VERTICAL_SAFE_AREA;
+  const isMobile = canvasWidth < MOBILE_BREAKPOINT;
+
+  let fontSize = isMobile ? Math.min(canvasWidth / 5.5, 88) : Math.min(canvasWidth / 8, 120);
+  let lines: string[] = [];
+
+  // Shrink until the widest line and the total block height both fit.
+  while (true) {
+    ctx.font = `bold ${fontSize}px Arial`;
+    lines = wrapText(ctx, text, maxWidth);
+
+    const widestLine = lines.reduce((widest, line) => Math.max(widest, ctx.measureText(line).width), 0);
+    const totalHeight = lines.length * fontSize * LINE_HEIGHT_RATIO;
+
+    if ((widestLine <= maxWidth && totalHeight <= maxHeight) || fontSize <= MIN_FONT_SIZE) break;
+
+    fontSize = Math.max(MIN_FONT_SIZE, fontSize - 2);
+  }
+
+  return { lines, lineHeight: fontSize * LINE_HEIGHT_RATIO };
+}
 
 export function Hero({ words = DEFAULT_WORDS }: HeroProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -157,7 +217,6 @@ export function Hero({ words = DEFAULT_WORDS }: HeroProps) {
   const wordIndexRef = useRef(0);
   const mouseRef = useRef({ x: 0, y: 0, isPressed: false, isRightClick: false });
 
-  const pixelSteps = 6;
   const drawAsPoints = true;
 
   const generateRandomPos = (x: number, y: number, mag: number): Vector2D => {
@@ -185,12 +244,20 @@ export function Hero({ words = DEFAULT_WORDS }: HeroProps) {
     const offscreenCtx = offscreenCanvas.getContext("2d");
     if (!offscreenCtx) return;
 
-    const fontSize = Math.min(canvas.width / 8, 120);
+    // Fit and wrap the phrase so it never overflows narrow viewports.
+    const { lines, lineHeight } = layoutText(offscreenCtx, word, canvas.width, canvas.height);
+
     offscreenCtx.fillStyle = "white";
-    offscreenCtx.font = `bold ${fontSize}px Arial`;
     offscreenCtx.textAlign = "center";
     offscreenCtx.textBaseline = "middle";
-    offscreenCtx.fillText(word, canvas.width / 2, canvas.height / 2);
+
+    const blockStartY = canvas.height / 2 - ((lines.length - 1) * lineHeight) / 2;
+    lines.forEach((line, index) => {
+      offscreenCtx.fillText(line, canvas.width / 2, blockStartY + index * lineHeight);
+    });
+
+    // Sample the glyphs more densely on mobile, where the text is physically smaller.
+    const pixelSteps = canvas.width < MOBILE_BREAKPOINT ? 4 : 6;
 
     const imageData = offscreenCtx.getImageData(0, 0, canvas.width, canvas.height);
     const pixels = imageData.data;
@@ -312,11 +379,24 @@ export function Hero({ words = DEFAULT_WORDS }: HeroProps) {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
+    let lastWidth = 0;
+    let lastHeight = 0;
+
     const resizeCanvas = () => {
       if (!canvas) return;
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-      
+
+      const width = window.innerWidth;
+      const height = window.innerHeight;
+
+      // Mobile browsers fire resize when the URL bar collapses. Ignore those
+      // small height-only changes so the animation doesn't restart on scroll.
+      if (width === lastWidth && Math.abs(height - lastHeight) < 120) return;
+
+      lastWidth = width;
+      lastHeight = height;
+      canvas.width = width;
+      canvas.height = height;
+
       if (words.length > 0) {
         nextWord(words[wordIndexRef.current], canvas);
       }
@@ -372,7 +452,8 @@ export function Hero({ words = DEFAULT_WORDS }: HeroProps) {
         ref={canvasRef}
         className="w-full h-full"
       />
-      <div className="fixed bottom-8 left-1/2 transform -translate-x-1/2 text-white text-sm text-center max-w-md px-4 z-10">
+      {/* Pointer-only hint: hidden on touch/mobile where right-click isn't available. */}
+      <div className="hidden sm:block fixed bottom-8 left-1/2 transform -translate-x-1/2 text-white text-sm text-center max-w-md px-4 z-10">
         <p className="text-gray-400 text-xs">
           Right-click and hold while moving mouse to destroy particles
         </p>
